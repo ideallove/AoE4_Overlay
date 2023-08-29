@@ -20,8 +20,10 @@ str_link = "链接"
 
 logger = get_logger(__name__)
 
-VERSION = "1.4.3"
-title_chs = "帝国时代4:游戏工具箱 (Overlay1.4.3汉化版内部测试)"
+
+VERSION = "1.4.4"
+title_chs = "帝国时代4:游戏工具箱 (Overlay1.4.4汉化版内部测试)"
+
 
 # Might or might not help
 os.environ["PYTHONIOENCODING"] = "utf-8"
