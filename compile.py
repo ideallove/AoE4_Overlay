@@ -34,6 +34,6 @@ with ZipFile(file_name, 'w', compression=ZIP_DEFLATED) as zip:
         zip.write(f, f"AoE4_Overlay/{f[len(folder)+1:]}")
 
 # Cleanup
-# for item in (folder, ):
-#     if os.path.isdir(item):
-#         shutil.rmtree(item)
+for item in (folder, ):
+    if os.path.isdir(item):
+        shutil.rmtree(item)

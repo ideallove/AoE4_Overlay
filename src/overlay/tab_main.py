@@ -22,6 +22,18 @@ from overlay.tab_stats import StatsTab
 from overlay.websocket import Websocket_manager
 from overlay.worker import scheldule
 
+str_setting_en = "Setting"
+str_games_en = "Games"
+str_bo_en = "Build Order"
+str_random_en = "Random"
+str_override_en = "Override"
+
+str_setting = "设置"
+str_games = "游戏"
+str_bo = "建造队列"
+str_random = "随机"
+str_override = "游戏内覆盖"
+
 logger = get_logger(__name__)
 
 
@@ -46,13 +58,13 @@ class TabWidget(QtWidgets.QTabWidget):
         self.settigns_tab = SettingsTab(self)
         self.settigns_tab.new_profile.connect(self.new_profile_found)
 
-        self.addTab(self.settigns_tab, "Settings")
-        self.addTab(self.games_tab, "Games")
+        self.addTab(self.settigns_tab, str_setting)
+        self.addTab(self.games_tab, str_games)
         # self.addTab(self.graph_tab, "Rating")
         # self.addTab(self.stats_tab, "Stats")
-        self.addTab(self.build_order_tab, "Build orders")
-        self.addTab(self.random_tab, "Randomize")
-        self.addTab(self.override_tab, "Override")
+        self.addTab(self.build_order_tab, str_bo)
+        self.addTab(self.random_tab, str_random)
+        self.addTab(self.override_tab, str_override)
 
     def start(self):
         logger.info(

@@ -181,11 +181,18 @@ class OverrideTab(QtWidgets.QWidget):
         layout.addLayout(top_layout)
 
         # Description
+        # desc = QtWidgets.QLabel(
+        #     """Here you can override what is being shown on the overlay.<br><br>\
+        #      <b>Override</b> will apply these values.<br>\
+        #      <b>Reset</b> will reset the overlay and this to current live values.<br>\
+        #      <b>Prevent automatic update</b> will prevent automatic updating with new games."""
+        # )
+        
         desc = QtWidgets.QLabel(
-            """Here you can override what is being shown on the overlay.<br><br>\
-             <b>Override</b> will apply these values.<br>\
-             <b>Reset</b> will reset the overlay and this to current live values.<br>\
-             <b>Prevent automatic update</b> will prevent automatic updating with new games."""
+            """在这里你可以手动编辑游戏内覆盖的内容.<br><br>\
+             <b>覆写</b> will apply these values.<br>\
+             <b>重置</b> will reset the overlay and this to current live values.<br>\
+             <b>取消自动更新</b> will prevent automatic updating with new games."""
         )
 
         top_layout.addWidget(desc)
@@ -195,19 +202,22 @@ class OverrideTab(QtWidgets.QWidget):
         top_layout.addLayout(hlayout)
 
         # Override overlay
-        override_btn = QtWidgets.QPushButton("Override")
+        # override_btn = QtWidgets.QPushButton("Override")
+        override_btn = QtWidgets.QPushButton("覆写")
         override_btn.clicked.connect(self.override_overlay)
         override_btn.setMaximumWidth(150)
         override_btn.setShortcut("Return")
         hlayout.addWidget(override_btn)
 
         # Reset overlay
-        reset_btn = QtWidgets.QPushButton("Reset")
+        # reset_btn = QtWidgets.QPushButton("Reset")
+        reset_btn = QtWidgets.QPushButton("重置")
         reset_btn.clicked.connect(self.reset_overlay)
         reset_btn.setMaximumWidth(150)
         hlayout.addWidget(reset_btn)
 
-        self.prevent_ck = QtWidgets.QCheckBox("Prevent automatic update")
+        # self.prevent_ck = QtWidgets.QCheckBox("Prevent automatic update")
+        self.prevent_ck = QtWidgets.QCheckBox("取消自动更新")
         self.prevent_ck.stateChanged.connect(
             lambda: self.update_override.emit(self.prevent_ck.isChecked()))
         hlayout.addWidget(self.prevent_ck)
