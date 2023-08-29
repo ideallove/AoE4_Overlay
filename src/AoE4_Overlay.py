@@ -14,9 +14,16 @@ from overlay.logging_func import get_logger
 from overlay.settings import CONFIG_FOLDER, settings
 from overlay.tab_main import TabWidget
 
+str_file = "文件"
+str_setting = "设置"
+str_link = "链接"
+
 logger = get_logger(__name__)
 
+
 VERSION = "1.4.4"
+title_chs = "帝国时代4:游戏工具箱 (Overlay1.4.4汉化版内部测试)"
+
 
 # Might or might not help
 os.environ["PYTHONIOENCODING"] = "utf-8"
@@ -67,7 +74,8 @@ class MainApp(QtWidgets.QMainWindow):
         self.centralWidget().start()
 
     def initUI(self):
-        self.setWindowTitle(f"AoE IV: Overlay ({VERSION})")
+        # self.setWindowTitle(f"AoE IV: Overlay ({VERSION})")
+        self.setWindowTitle(title_chs)
         self.setWindowIcon(QtGui.QIcon(file_path('img/aoe4_sword_shield.ico')))
         self.setGeometry(0, 0, settings.app_width, settings.app_height)
         self.move(QtWidgets.QDesktopWidget().availableGeometry().center() -
@@ -78,10 +86,10 @@ class MainApp(QtWidgets.QMainWindow):
 
         ### Create menu bar items
         menubar = self.menuBar()
-        file_menu = menubar.addMenu('File')
+        file_menu = menubar.addMenu(str_file)
         # graphs_menu = menubar.addMenu('Graphs')
-        settings_menu = menubar.addMenu('Settings')
-        link_menu = menubar.addMenu('Links')
+        settings_menu = menubar.addMenu(str_setting)
+        link_menu = menubar.addMenu(str_link)
 
         # Html
         icon = self.style().standardIcon(
@@ -165,6 +173,13 @@ class MainApp(QtWidgets.QMainWindow):
         aoe4worldaction.triggered.connect(
             partial(webbrowser.open, "https://aoe4world.com/"))
         link_menu.addAction(aoe4worldaction)
+        
+        # AoE4 CN
+        icon = QtGui.QIcon(file_path("img/aoe4worldcom.ico"))
+        aoe4cnaction = QtWidgets.QAction(icon, 'AoE4 CN', self)
+        aoe4cnaction.triggered.connect(
+            partial(webbrowser.open, "https://www.aoe4cn.com/"))
+        link_menu.addAction(aoe4cnaction)
 
         # Which graphs to show
         # self.show_graph_actions = []
