@@ -1,7 +1,7 @@
-# AoE4 Overlay
- 
-* **[DOWNLOAD HERE](https://github.com/FluffyMaguro/AoE4_Overlay/releases/download/1.4.5/AoE4_Overlay.zip)** (Windows)
-* Or run the script with Python 3.6+ (Windows/Mac/Linux)
+# AoE4 Overlay 帝国时代4 游戏内覆盖工具
+
+* **[点击这里下载绿色压缩包]()下载后解压使用** 
+
 
 ![Screenshot](https://i.imgur.com/eN2zJ3c.jpg)
 
@@ -178,6 +178,6 @@ Or change values to something completely different
     }
     ```
 
-# Releases & Changelog
+<!-- # Releases & Changelog
 
-[All here](https://github.com/FluffyMaguro/AoE4_Overlay/releases)
+[All here](https://github.com/FluffyMaguro/AoE4_Overlay/releases) -->

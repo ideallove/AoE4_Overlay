@@ -49,16 +49,27 @@ class _Settings:
         self.bo_border_size: int = 15  # size of the borders
         self.bo_vertical_spacing: int = 10  # vertical space between the BO lines
         # store build orders
+        # self.buildorders: Dict[str, str] = {
+        #     "Instructions":
+        #     "Write your own build order.\n"
+        #     "You can also copy one from the https://age4builder.com website\n"
+        #     "    (click on the salamander icon and paste it here)\n"
+        #     "    or from https://aoe4guides.com (click on the 3 dots\n"
+        #     "    in the upper right corner, then on \'Overlay Tool\'').\n\n"
+        #     "Two formats are accepted:\n"
+        #     "* Simple TXT format.\n"
+        #     "* JSON format compatible with CraftySalamander overlay."
+        # }
         self.buildorders: Dict[str, str] = {
-            "Instructions":
-            "Write your own build order.\n"
-            "You can also copy one from the https://age4builder.com website\n"
-            "    (click on the salamander icon and paste it here)\n"
-            "    or from https://aoe4guides.com (click on the 3 dots\n"
+            "说明":
+            "在这里编辑你的建造队列\n"
+            "你可以从这个网站 https://age4builder.com 复制有一个\n"
+            "    (点击复制标签并粘贴到此处)\n"
+            "    或者从这个网站 https://aoe4guides.com (click on the 3 dots\n"
             "    in the upper right corner, then on \'Overlay Tool\'').\n\n"
-            "Two formats are accepted:\n"
-            "* Simple TXT format.\n"
-            "* JSON format compatible with CraftySalamander overlay."
+            "本工具接受两种形式的队列:\n"
+            "* 简单 TXT 格式.\n"
+            "* 兼容的 CraftySalamander 覆盖的 JSON 格式."
         }
         self.unchecked_buildorders: list = [
         ]  # list of build orders which are not checked at launch

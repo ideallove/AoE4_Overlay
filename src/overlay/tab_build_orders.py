@@ -12,6 +12,28 @@ from overlay.custom_widgets import CustomKeySequenceEdit
 from overlay.logging_func import get_logger
 from overlay.settings import settings
 
+str_add_bo_en = "Add build order"
+str_rm_bo_en = "Remove build order"
+str_up_bo_en = "Move build order up"
+str_down_bo_en = "Move build order down"
+str_guide_en = 'Find & copy build orders from <a href="https://age4builder.com/">age4builder.com</a><br>or <a href="https://aoe4guides.com/">aoe4guides.com</a>.'
+str_overlay_en = "Overlay"
+str_hotkey_en = "Hotkey for showing and hiding overlay:"
+str_hotkey_tip_en = "Hotkey for showing and hiding overlay."
+str_overlay_fontsize_en = "Overlay font size:"
+str_overlay_bo_position_en = "Change BO overlay position"
+
+str_add_bo = "添加建造队列"
+str_rm_bo = "移除建造队列"
+str_up_bo = "↑ 上移"
+str_down_bo = "↓ 下移"
+str_guide = '从<a href="https://age4builder.com/">age4builder.com</a><br>或<a href="https://aoe4guides.com/">aoe4guides.com</a>查找和复制建造队列'
+str_overlay = "Overlay 游戏内覆盖"
+str_hotkey = "快捷键（显示/关闭游戏内覆盖）:"
+str_hotkey_tip = "设置 显示/关闭游戏内覆盖 的快捷键"
+str_overlay_fontsize = "游戏内覆盖的字体大小:"
+str_overlay_bo_position = "更改建造队列显示位置(再点一次锁定位置)"
+
 logger = get_logger(__name__)
 
 
@@ -331,7 +353,7 @@ class BoTab(QtWidgets.QWidget):
         self.font_size_combo = QtWidgets.QComboBox()  # overlay font
         self.image_height_combo = QtWidgets.QComboBox()  # images height
         self.button_change_position = QtWidgets.QPushButton(
-            "Change BO overlay position")  # change overlay position
+            str_overlay_bo_position)  # change overlay position
 
         # hotkeys
         self.key_show_hide = CustomKeySequenceEdit(self)
@@ -413,44 +435,44 @@ class BoTab(QtWidgets.QWidget):
             self.cycle_overlay()
 
         # add build order
-        add_bo_button = QtWidgets.QPushButton("Add build order")
+        add_bo_button = QtWidgets.QPushButton(str_add_bo)
         add_bo_button.clicked.connect(self.add_build_order)
         vertical_layout.addWidget(add_bo_button)
 
         # remove build order
-        remove_bo_btn = QtWidgets.QPushButton("Remove build order")
+        remove_bo_btn = QtWidgets.QPushButton(str_rm_bo)
         remove_bo_btn.clicked.connect(self.remove_build_order)
         vertical_layout.addWidget(remove_bo_btn)
 
         # move build order up
-        move_up_bo_btn = QtWidgets.QPushButton("Move build order up")
+        move_up_bo_btn = QtWidgets.QPushButton(str_up_bo)
         move_up_bo_btn.clicked.connect(self.move_build_order_up)
         vertical_layout.addWidget(move_up_bo_btn)
 
         # move build order down
-        move_down_bo_btn = QtWidgets.QPushButton("Move build order down")
+        move_down_bo_btn = QtWidgets.QPushButton(str_down_bo)
         move_down_bo_btn.clicked.connect(self.move_build_order_down)
         vertical_layout.addWidget(move_down_bo_btn)
 
         vertical_layout.addSpacing(30)
         age4builder = QtWidgets.QLabel(
-            'Find & copy build orders from <a href="https://age4builder.com/">age4builder.com</a><br>or <a href="https://aoe4guides.com/">aoe4guides.com</a>.'
+            str_guide
         )
         age4builder.setOpenExternalLinks(True)
         vertical_layout.addWidget(age4builder)
 
         # overlay control (hotkeys...)
         vertical_layout.addSpacing(10)
-        overlay_box = QtWidgets.QGroupBox("Overlay")
+        overlay_box = QtWidgets.QGroupBox(str_overlay)
         overlay_layout = QtWidgets.QGridLayout()
         overlay_box.setLayout(overlay_layout)
         vertical_layout.addWidget(overlay_box)
 
         # show/hide hotkey
-        key_label = QtWidgets.QLabel("Hotkey for showing and hiding overlay:")
+        key_label = QtWidgets.QLabel(str_hotkey)
         overlay_layout.addWidget(key_label, 0, 0)
         self.key_show_hide.setMaximumWidth(100)
-        self.key_show_hide.setToolTip("Hotkey for showing and hiding overlay.")
+        self.key_show_hide.setToolTip(str_hotkey_tip)
         overlay_layout.addWidget(self.key_show_hide, 0, 1)
         self.key_show_hide.key_changed.connect(self.show_hotkey_changed)
 
@@ -482,7 +504,7 @@ class BoTab(QtWidgets.QWidget):
         self.key_next_step.key_changed.connect(self.next_step_hotkey_changed)
 
         # overlay font
-        font_label = QtWidgets.QLabel("Overlay font size:")
+        font_label = QtWidgets.QLabel(str_overlay_fontsize)
         overlay_layout.addWidget(font_label, 4, 0)
         for i in range(1, 51):
             self.font_size_combo.addItem(f"{i} pt")
