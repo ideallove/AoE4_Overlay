@@ -22,7 +22,7 @@ logger = get_logger(__name__)
 
 
 VERSION = "1.4.5"
-title_chs = "帝国时代4:游戏工具箱 (Overlay1.4.4汉化版内部测试)"
+title_chs = "帝国时代4:游戏工具箱 (Overlay1.4.5汉化版内部测试)"
 
 
 # Might or might not help
