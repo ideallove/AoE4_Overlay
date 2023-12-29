@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
 import os
 import subprocess
 import sys
@@ -20,50 +22,47 @@ str_link = "链接"
 
 logger = get_logger(__name__)
 
-
 VERSION = "1.4.5"
 title_chs = "帝国时代4:游戏工具箱 (Overlay1.4.5汉化版内部测试)"
-
 
 # Might or might not help
 os.environ["PYTHONIOENCODING"] = "utf-8"
 
 
-def excepthook(exc_type: Type[BaseException], exc_value: Exception,
-               exc_tback: TracebackType):
-    """ Provides the top-most exception handling. Logs unhandled exceptions and cleanly shuts down the app."""
+def excepthook(exc_type: Type[BaseException], exc_value: Exception, exc_tback: TracebackType):
+    """ 提供最顶层的异常处理。记录未处理的异常并清理地关闭应用程序。"""
 
+    # 检查是否是Unicode编码错误
     if isinstance(exc_value, UnicodeEncodeError):
-        logger.warning("Unicode error")
-        return
+        logger.warning("Unicode error")  # 记录Unicode错误的警告
+        return  # 返回，不执行后续代码
 
-    # Log the exception
-    logger.exception("Unhandled exception!",
-                     exc_info=(exc_type, exc_value, exc_tback))
+    # 记录异常信息
+    logger.exception("Unhandled exception!", exc_info=(exc_type, exc_value, exc_tback))
 
-    # If compiled, send email log
+    # 如果程序被编译，则发送电子邮件日志
     # try:
     #     if is_compiled() and settings.send_email_logs:
     #         send_email_log(VERSION, exc_type, exc_value, exc_tback)
     # except Exception:
-    #     logger.exception("Failed to send a log through email")
+    #     logger.exception("Failed to send a log through email")  # 如果发送邮件失败，则记录异常
 
-    # Try to save settings
+    # 尝试保存设置
     try:
-        settings.save()
+        settings.save()  # 尝试保存程序设置
     except Exception:
-        logger.exception("Failed to save settings")
+        logger.exception("Failed to save settings")  # 如果保存设置失败，记录异常
 
-    # Shut down other threads
+    # 关闭其他线程
     try:
-        Main.centralWidget().stop_checking_api()
+        Main.centralWidget().stop_checking_api()  # 尝试停止检查API的线程
     except Exception:
-        pass
+        pass  # 如果出现异常，忽略
 
-    sys.exit()
+    sys.exit()  # 退出程序
 
 
-sys.excepthook = excepthook
+sys.excepthook = excepthook  # 将全局异常处理钩子设置为excepthook函数
 
 
 class MainApp(QtWidgets.QMainWindow):
@@ -173,7 +172,7 @@ class MainApp(QtWidgets.QMainWindow):
         aoe4worldaction.triggered.connect(
             partial(webbrowser.open, "https://aoe4world.com/"))
         link_menu.addAction(aoe4worldaction)
-        
+
         # AoE4 CN
         icon = QtGui.QIcon(file_path("img/aoe4worldcom.ico"))
         aoe4cnaction = QtWidgets.QAction(icon, 'AoE4 CN', self)

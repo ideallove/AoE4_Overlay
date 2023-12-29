@@ -5,7 +5,7 @@ import threading
 import websockets
 from websockets.legacy.server import serve as websockets_serve
 
-from overlay.logging_func import get_logger
+from src.overlay.logging_func import get_logger
 
 lock = threading.Lock()
 logger = get_logger(__name__)

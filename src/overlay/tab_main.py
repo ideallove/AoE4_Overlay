@@ -8,19 +8,19 @@ from typing import Any, Dict, List, Optional
 import keyboard
 from PyQt5 import QtWidgets
 
-import overlay.helper_func as hf
-from overlay.api_checking import Api_checker, get_full_match_history
-from overlay.logging_func import get_logger, log_match
-from overlay.settings import settings
-from overlay.tab_build_orders import BoTab
-from overlay.tab_games import MatchHistoryTab
-from overlay.tab_graphs import GraphTab
-from overlay.tab_override import OverrideTab
-from overlay.tab_random import RandomTab
-from overlay.tab_settings import SettingsTab
-from overlay.tab_stats import StatsTab
-from overlay.websocket import Websocket_manager
-from overlay.worker import scheldule
+import src.overlay.helper_func as hf
+from src.overlay.api_checking import Api_checker, get_full_match_history
+from src.overlay.logging_func import get_logger, log_match
+from src.overlay.settings import settings
+from src.overlay.tab_build_orders import BoTab
+from src.overlay.tab_games import MatchHistoryTab
+from src.overlay.tab_graphs import GraphTab
+from src.overlay.tab_override import OverrideTab
+from src.overlay.tab_random import RandomTab
+from src.overlay.tab_settings import SettingsTab
+from src.overlay.tab_stats import StatsTab
+from src.overlay.websocket import Websocket_manager
+from src.overlay.worker import scheldule
 
 str_setting_en = "Setting"
 str_games_en = "Games"

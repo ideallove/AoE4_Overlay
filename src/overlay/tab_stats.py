@@ -2,12 +2,12 @@ from typing import Any, Dict, List
 
 from PyQt5 import QtCore, QtWidgets
 
-from overlay.aoe4_data import civ_data, map_data, mode_data
-from overlay.api_checking import get_leaderboard_data
-from overlay.helper_func import match_mode
-from overlay.logging_func import catch_exceptions, get_logger
-from overlay.settings import settings
-from overlay.worker import scheldule
+from src.overlay.aoe4_data import civ_data, map_data, mode_data
+from src.overlay.api_checking import get_leaderboard_data
+from src.overlay.helper_func import match_mode
+from src.overlay.logging_func import catch_exceptions, get_logger
+from src.overlay.settings import settings
+from src.overlay.worker import scheldule
 
 logger = get_logger(__name__)
 

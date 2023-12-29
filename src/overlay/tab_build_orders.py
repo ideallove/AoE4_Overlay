@@ -5,12 +5,12 @@ import pathlib
 import keyboard
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-from overlay.build_order_tools import (
+from src.overlay.build_order_tools import (
     MultiQLabelDisplay, QLabelSettings,
     check_valid_aoe4_build_order_from_string, civilization_flags)
-from overlay.custom_widgets import CustomKeySequenceEdit
-from overlay.logging_func import get_logger
-from overlay.settings import settings
+from src.overlay.custom_widgets import CustomKeySequenceEdit
+from src.overlay.logging_func import get_logger
+from src.overlay.settings import settings
 
 str_add_bo_en = "Add build order"
 str_rm_bo_en = "Remove build order"

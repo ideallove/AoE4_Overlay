@@ -2,11 +2,11 @@ from typing import Any, Callable, Dict
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-from overlay.aoe4_data import civ_data
-from overlay.helper_func import file_path, zeroed
-from overlay.logging_func import get_logger
-from overlay.overlay_widget import AoEOverlay, PlayerWidget
-from overlay.settings import settings
+from src.overlay.aoe4_data import civ_data
+from src.overlay.helper_func import file_path, zeroed
+from src.overlay.logging_func import get_logger
+from src.overlay.overlay_widget import AoEOverlay, PlayerWidget
+from src.overlay.settings import settings
 
 logger = get_logger(__name__)
 ICON_CACHE = {}
@@ -187,7 +187,7 @@ class OverrideTab(QtWidgets.QWidget):
         #      <b>Reset</b> will reset the overlay and this to current live values.<br>\
         #      <b>Prevent automatic update</b> will prevent automatic updating with new games."""
         # )
-        
+
         desc = QtWidgets.QLabel(
             """在这里你可以手动编辑游戏内覆盖的内容.<br><br>\
              <b>覆写</b> will apply these values.<br>\

@@ -5,7 +5,7 @@ from typing import Iterable, List, Optional, Tuple, Union
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-from overlay.logging_func import get_logger
+from src.overlay.logging_func import get_logger
 
 logger = get_logger(__name__)
 
@@ -170,7 +170,7 @@ class GraphWidget(QtWidgets.QWidget):
         self._data = []
 
     def set_plot_visibility(self, index: int, visible: bool):
-        """ Changes the visibility of the plot 
+        """ Changes the visibility of the plot
         Args:
             `index` : index of the plot (given manually)
             `visible` : whether to show or hide

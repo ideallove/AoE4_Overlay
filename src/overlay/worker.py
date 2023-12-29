@@ -4,7 +4,7 @@ from typing import Callable, Optional
 
 from PyQt5 import QtCore
 
-from overlay.logging_func import get_logger
+from src.overlay.logging_func import get_logger
 
 logger = get_logger(__name__)
 
@@ -18,10 +18,10 @@ class WorkerSignals(QtCore.QObject):
 
     finished
         No data
-    
+
     error
         `tuple` (exctype, value, traceback.format_exc() )
-    
+
     result
         `object` data returned from processing, anything
 

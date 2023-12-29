@@ -9,9 +9,9 @@ from typing import Any, Dict, Optional, Union
 import requests
 from PyQt5 import QtCore
 
-from overlay.aoe4_data import QM_ids
-from overlay.logging_func import get_logger
-from overlay.settings import settings
+from src.overlay.aoe4_data import QM_ids
+from src.overlay.logging_func import get_logger
+from src.overlay.settings import settings
 
 logger = get_logger(__name__)
 ROOT = pathlib.Path(sys.argv[0]).parent.absolute()
@@ -72,7 +72,7 @@ def create_custom_files():
 
 def match_mode(match: Dict[str, Any], convert_customs: bool = True) -> int:
     """ Returns match mode (e.g., 17 for both QM 1v1)
-    
+
     Returns the same value for Custom 1v1 if `convert_customs` == True
     """
     leaderboard_id = match['rating_type_id'] + 2
@@ -83,8 +83,8 @@ def match_mode(match: Dict[str, Any], convert_customs: bool = True) -> int:
 
 def process_game(game_data: Dict[str, Any]) -> Dict[str, Any]:
     """ Processes game data returned by API
-    
-    Sorts players to main is at the top. Calculates winrates. 
+
+    Sorts players to main is at the top. Calculates winrates.
     Gets text for civs and maps. Apart from `team`, all player data returned as string."""
     result = {}
     result['map'] = game_data['map']
@@ -169,7 +169,7 @@ def process_game(game_data: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def strtime(t: Union[int, float], show_seconds: bool = False) -> str:
-    """ Returns formatted string 
+    """ Returns formatted string
     X days, Y hours, Z minutes
     """
     years, delta = divmod(t, 31557600)

@@ -1,16 +1,16 @@
-import json
+﻿import json
 from types import TracebackType
 from typing import Tuple, Type
 
 import keyboard
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-from overlay.api_checking import find_player
-from overlay.custom_widgets import CustomKeySequenceEdit
-from overlay.logging_func import get_logger
-from overlay.overlay_widget import AoEOverlay
-from overlay.settings import settings
-from overlay.worker import scheldule
+from src.overlay.api_checking import find_player
+from src.overlay.custom_widgets import CustomKeySequenceEdit
+from src.overlay.logging_func import get_logger
+from src.overlay.overlay_widget import AoEOverlay
+from src.overlay.settings import settings
+from src.overlay.worker import scheldule
 
 str_profile_en = "Profile"
 str_no_player_identified_en = "No player identified"
@@ -152,7 +152,7 @@ class SettingsTab(QtWidgets.QWidget):
             'background-color: #3bb825; color: black')
         self.update_button.hide()
         self.main_layout.addWidget(self.update_button)
-        
+
         ### chs box
         chs_box = QtWidgets.QGroupBox("汉化补丁")
         chs_box.setSizePolicy(

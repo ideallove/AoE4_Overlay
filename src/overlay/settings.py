@@ -2,7 +2,7 @@ import json
 import os
 from typing import Dict, List, Optional
 
-from overlay.logging_func import CONFIG_FOLDER, get_logger
+from src.overlay.logging_func import CONFIG_FOLDER, get_logger
 
 logger = get_logger(__name__)
 CONFIG_FILE = os.path.join(CONFIG_FOLDER, "config.json")

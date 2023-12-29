@@ -6,7 +6,7 @@ import traceback
 from types import TracebackType
 from typing import Type
 
-from overlay.settings import settings
+from src.overlay.settings import settings
 
 port = 465  # Required for SMTP_SLL
 password = ""  # You can set these for your logging
