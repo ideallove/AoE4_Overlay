@@ -1,6 +1,6 @@
 from typing import Any, Dict
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PySide6 import QtCore, QtGui, QtWidgets
 
 from src.overlay.custom_widgets import OverlayWidget, VerticalLabel
 from src.overlay.helper_func import file_path, zeroed
@@ -143,7 +143,7 @@ class AoEOverlay(OverlayWidget):
     def setup_as_overlay(self):
         if settings.overlay_geometry is None:
             self.setGeometry(0, 0, 700, 400)
-            sg = QtWidgets.QDesktopWidget().screenGeometry(0)
+            sg = QtGui.QGuiApplication.primaryScreen().availableGeometry()
             self.move(sg.width() - self.width() + 15, sg.top() - 20)
         else:
             self.setGeometry(*settings.overlay_geometry)

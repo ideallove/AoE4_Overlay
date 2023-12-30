@@ -3,7 +3,7 @@ import math
 import time
 from typing import Iterable, List, Optional, Tuple, Union
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PySide6 import QtCore, QtGui, QtWidgets
 
 from src.overlay.logging_func import get_logger
 

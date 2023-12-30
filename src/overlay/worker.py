@@ -2,7 +2,7 @@ import sys
 import traceback
 from typing import Callable, Optional
 
-from PyQt5 import QtCore
+from PySide6 import QtCore
 
 from src.overlay.logging_func import get_logger
 
@@ -26,10 +26,10 @@ class WorkerSignals(QtCore.QObject):
         `object` data returned from processing, anything
 
     '''
-    finished = QtCore.pyqtSignal()
-    error = QtCore.pyqtSignal(tuple)
-    result = QtCore.pyqtSignal(object)
-    progress = QtCore.pyqtSignal(object)
+    finished = QtCore.Signal()
+    error = QtCore.Signal(tuple)
+    result = QtCore.Signal(object)
+    progress = QtCore.Signal(object)
 
 
 class Worker(QtCore.QRunnable):
@@ -51,7 +51,7 @@ class Worker(QtCore.QRunnable):
         if 'progress_callback' in kwargs:
             self.kwargs['progress_callback'] = self.signals.progress
 
-    @QtCore.pyqtSlot()
+    @QtCore.Slot()
     def run(self):
         """ Runs the function and emits signals (error, result, finished) """
         try:

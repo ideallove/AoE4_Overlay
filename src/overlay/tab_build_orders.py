@@ -3,7 +3,7 @@ import os
 import pathlib
 
 import keyboard
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PySide6 import QtCore, QtGui, QtWidgets
 
 from src.overlay.build_order_tools import (
     MultiQLabelDisplay, QLabelSettings,
@@ -105,7 +105,7 @@ class BuildOrderOverlay(QtWidgets.QMainWindow):
         self.setWindowOpacity(settings.bo_opacity)
 
         # check that the upper right corner is inside the screen
-        screen_size = QtWidgets.QDesktopWidget().screenGeometry(-1)
+        screen_size = QtGui.QGuiApplication.primaryScreen().availableGeometry()
 
         if settings.bo_upper_right_position[0] >= screen_size.width():
             logger.info(
@@ -263,7 +263,7 @@ class BuildOrderOverlay(QtWidgets.QMainWindow):
 
 
 def init_hotkey(hotkey_str: str, hotkey_edit: CustomKeySequenceEdit,
-                hotkey_signal: QtCore.pyqtSignal):
+                hotkey_signal: QtCore.Signal):
     """Initialize one hotkey
 
     Parameters
@@ -290,7 +290,7 @@ def init_hotkey(hotkey_str: str, hotkey_edit: CustomKeySequenceEdit,
 
 def hotkey_changed(new_hotkey: str, hotkey_str: str,
                    hotkey_edit: CustomKeySequenceEdit,
-                   hotkey_signal: QtCore.pyqtSignal):
+                   hotkey_signal: QtCore.Signal):
     """Update hotkey when changed
 
     Parameters
@@ -326,10 +326,10 @@ def hotkey_changed(new_hotkey: str, hotkey_str: str,
 
 class BoTab(QtWidgets.QWidget):
     """Tab used to configure the build order (BO) overlay"""
-    show_hide_overlay = QtCore.pyqtSignal()  # show/hide the BO
-    cycle_build_order = QtCore.pyqtSignal()  # cycle between the different BO available
-    previous_step_build_order = QtCore.pyqtSignal()  # go to the previous step of the build order
-    next_step_build_order = QtCore.pyqtSignal()  # go to the next step of the build order
+    show_hide_overlay = QtCore.Signal()  # show/hide the BO
+    cycle_build_order = QtCore.Signal()  # cycle between the different BO available
+    previous_step_build_order = QtCore.Signal()  # go to the previous step of the build order
+    next_step_build_order = QtCore.Signal()  # go to the next step of the build order
 
     def __init__(self, parent):
         """Constructor
