@@ -22,12 +22,10 @@ str_link = "链接"
 logger = get_logger(__name__)
 
 VERSION = "1.4.5"
-title_chs = "帝国时代4:游戏工具箱 (Overlay1.4.5汉化版内部测试)"
-
-# Might or might not help
-os.environ["PYTHONIOENCODING"] = "utf-8"
+title_chs = "帝国时代4:游戏工具箱(技术验证测试)"
 
 
+# 重写全局异常处理钩子
 def excepthook(exc_type: Type[BaseException], exc_value: Exception, exc_tback: TracebackType):
     """ 提供最顶层的异常处理。记录未处理的异常并清理地关闭应用程序。"""
 
@@ -206,6 +204,7 @@ class MainApp(QtWidgets.QMainWindow):
     def update_title(self, name: str):
         self.setWindowTitle(f"AoE IV: Overlay ({VERSION}) – {name}")
 
+    # noinspection PyBroadException
     def finish(self):
         try:
             """ Give it some time to stop everything correctly"""
