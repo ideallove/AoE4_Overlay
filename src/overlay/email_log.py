@@ -12,7 +12,7 @@ import os
 # 获取当前脚本所在的目录 将脚本目录添加到 sys.path 中
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from settings import settings
+from overlay.settings import settings
 
 port = 465  # Required for SMTP_SLL
 password = ""  # You can set these for your logging

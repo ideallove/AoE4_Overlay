@@ -16,19 +16,19 @@ from typing import Any, Dict, List, Optional
 import keyboard
 from PySide6 import QtWidgets
 
-import helper_func as hf
-from api_checking import Api_checker, get_full_match_history
-from logging_func import get_logger, log_match
-from settings import settings
-from tab_build_orders import BoTab
-from tab_games import MatchHistoryTab
-from tab_graphs import GraphTab
-from tab_override import OverrideTab
-from tab_random import RandomTab
-from tab_settings import SettingsTab
-from tab_stats import StatsTab
-from websocket import Websocket_manager
-from worker import scheldule
+import overlay.helper_func as hf
+from overlay.api_checking import Api_checker, get_full_match_history
+from overlay.logging_func import get_logger, log_match
+from overlay.settings import settings
+from overlay.tab_build_orders import BoTab
+from overlay.tab_games import MatchHistoryTab
+from overlay.tab_graphs import GraphTab
+from overlay.tab_override import OverrideTab
+from overlay.tab_random import RandomTab
+from overlay.tab_settings import SettingsTab
+from overlay.tab_stats import StatsTab
+from overlay.websocket import Websocket_manager
+from overlay.worker import scheldule
 
 str_setting_en = "Setting"
 str_games_en = "Games"

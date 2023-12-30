@@ -1,9 +1,9 @@
 venv/*
 __pycache__/*
 .vscode/*
-AoE4_Overlay.zip
-AoE4_Overlay.build/*
-AoE4_Overlay.dist/*
+AoE4_overlay.zip
+AoE4_overlay.build/*
+AoE4_overlay.dist/*
 _compile.bat
 _venv.bat
 _vsc.bat

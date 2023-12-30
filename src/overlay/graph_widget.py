@@ -5,7 +5,7 @@ from typing import Iterable, List, Optional, Tuple, Union
 
 from PySide6 import QtCore, QtGui, QtWidgets
 
-from logging_func import get_logger
+from overlay.logging_func import get_logger
 
 logger = get_logger(__name__)
 

@@ -15,10 +15,10 @@ os.system('cmd /c "python -m nuitka'
           ' --windows-icon-from-ico=src/img/aoe4_sword_shield.ico'
           ' --include-data-dir=src/img=img'
           ' --include-data-dir=src/html=html'
-          ' src/AoE4_Overlay.py')
+          ' src/AoE4_overlay.py')
 
 # Zip
-file_name = f"AoE4_Overlay.zip"
+file_name = f"AoE4_overlay.zip"
 
 to_zip = []
 folder = 'AoE4_overlay.dist'

@@ -5,8 +5,8 @@ from typing import Any, Dict, List, Optional
 
 import requests
 
-from logging_func import get_logger
-from settings import settings
+from overlay.logging_func import get_logger
+from overlay.settings import settings
 
 logger = get_logger(__name__)
 session = requests.session()

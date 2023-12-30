@@ -3,8 +3,8 @@ from typing import Dict, Optional
 
 from PySide6 import QtCore, QtGui, QtWidgets
 
-from aoe4_data import civ_data, map_data
-from helper_func import file_path
+from overlay.aoe4_data import civ_data, map_data
+from overlay.helper_func import file_path
 
 str_random_civ_en = "Randomize civ"
 str_random_map_en = "Randomize map"

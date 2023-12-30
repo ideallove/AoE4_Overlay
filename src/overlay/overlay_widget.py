@@ -2,9 +2,9 @@ from typing import Any, Dict
 
 from PySide6 import QtCore, QtGui, QtWidgets
 
-from custom_widgets import OverlayWidget, VerticalLabel
-from helper_func import file_path, zeroed
-from settings import settings
+from overlay.custom_widgets import OverlayWidget, VerticalLabel
+from overlay.helper_func import file_path, zeroed
+from overlay.settings import settings
 
 PIXMAP_CACHE = {}
 

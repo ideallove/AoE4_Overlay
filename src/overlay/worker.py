@@ -4,7 +4,7 @@ from typing import Callable, Optional
 
 from PySide6 import QtCore
 
-from logging_func import get_logger
+from overlay.logging_func import get_logger
 
 logger = get_logger(__name__)
 

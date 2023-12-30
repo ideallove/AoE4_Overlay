@@ -5,12 +5,12 @@ import pathlib
 import keyboard
 from PySide6 import QtCore, QtGui, QtWidgets
 
-from build_order_tools import (
+from overlay.build_order_tools import (
     MultiQLabelDisplay, QLabelSettings,
     check_valid_aoe4_build_order_from_string, civilization_flags)
-from custom_widgets import CustomKeySequenceEdit
-from logging_func import get_logger
-from settings import settings
+from overlay.custom_widgets import CustomKeySequenceEdit
+from overlay.logging_func import get_logger
+from overlay.settings import settings
 
 str_add_bo_en = "Add build order"
 str_rm_bo_en = "Remove build order"
@@ -343,8 +343,7 @@ class BoTab(QtWidgets.QWidget):
         self.build_order_step = -1  # step of the build order, negative if not valid
         self.build_order_step_count = -1  # number of steps in the build order, negative if not valid
 
-        self.overlay = BuildOrderOverlay(
-        )  # overlay to display the build order
+        self.overlay = BuildOrderOverlay()  # overlay to display the build order
 
         # user interface
         self.bo_edit = QtWidgets.QTextEdit()  # text/json edit field

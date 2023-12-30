@@ -1,6 +1,9 @@
 # -*- coding: UTF-8 -*-
 import sys
 import os
+# 获取当前脚本所在的目录 将脚本目录添加到 sys.path 中
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append("D://coding2024//AoE4_Overlay//src//AoE4_Overlay.py")
 import subprocess
 import sys
 import webbrowser
@@ -15,10 +18,7 @@ from overlay.helper_func import file_path, is_compiled, pyqt_wait
 from overlay.logging_func import get_logger
 from overlay.settings import CONFIG_FOLDER, settings
 from overlay.tab_main import TabWidget
-import sys
-import os
-# 获取当前脚本所在的目录 将脚本目录添加到 sys.path 中
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 
 str_file = "文件"
 str_setting = "设置"
