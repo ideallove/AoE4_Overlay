@@ -1,7 +1,7 @@
 import random
 from typing import Dict, Optional
 
-from PyQt6 import QtCore, QtGui, QtWidgets
+from PySide6 import QtCore, QtGui, QtWidgets
 
 from overlay.aoe4_data import civ_data, map_data
 from overlay.helper_func import file_path

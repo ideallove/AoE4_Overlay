@@ -7,7 +7,7 @@ import traceback
 from typing import Any, Dict, Optional, Union
 
 import requests
-from PyQt6 import QtCore
+from PySide6 import QtCore
 
 from overlay.aoe4_data import QM_ids
 from overlay.logging_func import get_logger

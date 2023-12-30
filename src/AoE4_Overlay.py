@@ -6,7 +6,7 @@ from functools import partial
 from types import TracebackType
 from typing import Type
 
-from PyQt6 import QtCore, QtGui, QtWidgets
+from PySide6 import QtCore, QtGui, QtWidgets
 
 from overlay.email_log import send_email_log
 from overlay.helper_func import file_path, is_compiled, pyqt_wait
