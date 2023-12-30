@@ -3,7 +3,7 @@ from types import TracebackType
 from typing import Tuple, Type
 
 import keyboard
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt6 import QtCore, QtGui, QtWidgets
 
 from overlay.api_checking import find_player
 from overlay.custom_widgets import CustomKeySequenceEdit
@@ -48,7 +48,7 @@ class SettingsTab(QtWidgets.QWidget):
     def init_UI(self):
         # Layout
         self.main_layout = QtWidgets.QVBoxLayout()
-        self.main_layout.setAlignment(QtCore.Qt.AlignTop)
+        self.main_layout.setAlignment(QtCore.Qt.AlignmentFlag.AlignTop)
         self.main_layout.setContentsMargins(25, 25, 25, 25)
         self.main_layout.setSpacing(25)
         self.setLayout(self.main_layout)
@@ -56,8 +56,8 @@ class SettingsTab(QtWidgets.QWidget):
         ### Profile box
         profile_box = QtWidgets.QGroupBox(str_profile)
         profile_box.setSizePolicy(
-            QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed,
-                                  QtWidgets.QSizePolicy.Fixed))
+            QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed,
+                                  QtWidgets.QSizePolicy.Policy.Fixed))
         profile_box.setMinimumSize(400, 100)
         profile_box_layout = QtWidgets.QGridLayout()
         profile_box.setLayout(profile_box_layout)
@@ -67,7 +67,7 @@ class SettingsTab(QtWidgets.QWidget):
         self.profile_info = QtWidgets.QLabel(str_no_player_identified)
         self.profile_info.setStyleSheet("font-weight: bold")
         self.profile_info.setTextInteractionFlags(
-            QtCore.Qt.TextSelectableByMouse)
+            QtCore.Qt.TextInteractionFlag.TextSelectableByMouse)
         profile_box_layout.addWidget(self.profile_info)
 
         self.profile_link = QtWidgets.QLabel("")
@@ -80,7 +80,7 @@ class SettingsTab(QtWidgets.QWidget):
         self.multi_search.setToolTip(
             'Search for your account with one of these (Steam ID / Profile ID / Name).'
             ' Searching by name might not find the correct player.')
-        self.multi_search.setFocusPolicy(QtCore.Qt.ClickFocus)
+        self.multi_search.setFocusPolicy(QtCore.Qt.FocusPolicy.ClickFocus)
         self.multi_search.setMaximumWidth(220)
         profile_box_layout.addWidget(self.multi_search, 2, 0)
 
@@ -101,8 +101,8 @@ class SettingsTab(QtWidgets.QWidget):
         overlay_box = QtWidgets.QGroupBox(str_overlay)
         overlay_box.setMinimumSize(400, 100)
         overlay_box.setSizePolicy(
-            QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed,
-                                  QtWidgets.QSizePolicy.Fixed))
+            QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed,
+                                  QtWidgets.QSizePolicy.Policy.Fixed))
         overlay_layout = QtWidgets.QGridLayout()
         overlay_box.setLayout(overlay_layout)
         self.main_layout.addWidget(overlay_box)
@@ -156,8 +156,8 @@ class SettingsTab(QtWidgets.QWidget):
         ### chs box
         chs_box = QtWidgets.QGroupBox("汉化补丁")
         chs_box.setSizePolicy(
-            QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed,
-                                  QtWidgets.QSizePolicy.Fixed))
+            QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed,
+                                  QtWidgets.QSizePolicy.Policy.Fixed))
         chs_box.setMinimumSize(400, 100)
         chs_box_layout = QtWidgets.QGridLayout()
         chs_box.setLayout(chs_box_layout)

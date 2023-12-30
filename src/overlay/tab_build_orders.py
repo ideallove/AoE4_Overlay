@@ -3,7 +3,7 @@ import os
 import pathlib
 
 import keyboard
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt6 import QtCore, QtGui, QtWidgets
 
 from overlay.build_order_tools import (
     MultiQLabelDisplay, QLabelSettings,
@@ -90,12 +90,12 @@ class BuildOrderOverlay(QtWidgets.QMainWindow):
         self.fixed = True  # True if overlay position is fixed
 
         # window is transparent to mouse events, except for the configuration when not hidden
-        self.setAttribute(QtCore.Qt.WA_TransparentForMouseEvents, True)
+        self.setAttribute(QtCore.Qt.WidgetAttribute.WA_TransparentForMouseEvents, True)
 
         # remove the window title and stay always on top
-        self.setWindowFlags(QtCore.Qt.FramelessWindowHint
-                            | QtCore.Qt.WindowStaysOnTopHint
-                            | QtCore.Qt.CoverWindow)
+        self.setWindowFlags(QtCore.Qt.WindowType.FramelessWindowHint
+                            | QtCore.Qt.WindowType.WindowStaysOnTopHint
+                            | QtCore.Qt.WindowType.CoverWindow)
 
         # color and opacity
         color_background = settings.bo_color_background
@@ -105,7 +105,8 @@ class BuildOrderOverlay(QtWidgets.QMainWindow):
         self.setWindowOpacity(settings.bo_opacity)
 
         # check that the upper right corner is inside the screen
-        screen_size = QtWidgets.QDesktopWidget().screenGeometry(-1)
+        # screen_size = QtWidgets.QDesktopWidget().screenGeometry(-1)
+        screen_size = QtGui.QGuiApplication.primaryScreen().availableGeometry()
 
         if settings.bo_upper_right_position[0] >= screen_size.width():
             logger.info(
@@ -231,15 +232,15 @@ class BuildOrderOverlay(QtWidgets.QMainWindow):
         """Change the state from fixed position to window with moving position (and opposite)"""
         if self.fixed:  # fixed to moving
             self.fixed = False
-            self.setAttribute(QtCore.Qt.WA_TransparentForMouseEvents, False)
+            self.setAttribute(QtCore.Qt.WidgetAttribute.WA_TransparentForMouseEvents, False)
             self.setWindowFlags(QtCore.Qt.WindowTitleHint
                                 | QtCore.Qt.WindowStaysOnTopHint)
         else:  # moving to fixed
             self.fixed = True
             # offset added to take into account the difference of the window size with titlebar
             self.save_upper_right_position(offset_x=8, offset_y=31)
-            self.setAttribute(QtCore.Qt.WA_TransparentForMouseEvents, True)
-            self.setWindowFlags(QtCore.Qt.FramelessWindowHint
+            self.setAttribute(QtCore.Qt.WidgetAttribute.WA_TransparentForMouseEvents, True)
+            self.setWindowFlags(QtCore.Qt.WindowType.FramelessWindowHint
                                 | QtCore.Qt.WindowStaysOnTopHint)
         self.show()
 
@@ -426,12 +427,12 @@ class BoTab(QtWidgets.QWidget):
         vertical_layout.addWidget(self.bo_list)
         for name in settings.buildorders:
             item = QtWidgets.QListWidgetItem(name)
-            item.setCheckState(QtCore.Qt.Unchecked if (name in settings.unchecked_buildorders) else QtCore.Qt.Checked)
+            item.setCheckState(QtCore.Qt.CheckState.Unchecked if (name in settings.unchecked_buildorders) else QtCore.Qt.CheckState.Checked)
             self.bo_list.addItem(item)
         self.bo_list.currentItemChanged.connect(self.bo_selected)
 
         self.bo_list.setCurrentRow(0)  # set first selected item
-        if self.bo_list.currentItem().checkState() == QtCore.Qt.Unchecked:
+        if self.bo_list.currentItem().checkState() == QtCore.Qt.CheckState.Unchecked:
             self.cycle_overlay()
 
         # add build order
@@ -599,7 +600,7 @@ class BoTab(QtWidgets.QWidget):
     def add_build_order(self):
         """Add a new build order"""
         item = QtWidgets.QListWidgetItem(f"Build order {self.bo_list.count() + 1}")
-        item.setCheckState(QtCore.Qt.Checked)
+        item.setCheckState(QtCore.Qt.CheckState.Checked)
         self.bo_list.addItem(item)
         self.bo_list.setCurrentRow(self.bo_list.count() - 1)
         self.save_current_bo()
@@ -756,7 +757,7 @@ class BoTab(QtWidgets.QWidget):
 
         while current_id != init_id:  # stop if back to the initial ID
 
-            if self.bo_list.item(current_id).checkState() == QtCore.Qt.Checked:  # valid build order found
+            if self.bo_list.item(current_id).checkState() == QtCore.Qt.CheckState.Checked:  # valid build order found
                 self.bo_list.setCurrentRow(current_id)
                 self.build_order_step = -1
                 self.update_overlay()
@@ -797,5 +798,5 @@ class BoTab(QtWidgets.QWidget):
         settings.unchecked_buildorders.clear()
         rows_count = self.bo_list.count()
         for row_id in range(rows_count):
-            if self.bo_list.item(row_id).checkState() == QtCore.Qt.Unchecked:
+            if self.bo_list.item(row_id).checkState() == QtCore.Qt.CheckState.Unchecked:
                 settings.unchecked_buildorders.append(self.bo_list.item(row_id).text())

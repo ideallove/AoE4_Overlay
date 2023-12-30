@@ -1,4 +1,4 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt6 import QtCore, QtGui, QtWidgets
 
 
 class CustomKeySequenceEdit(QtWidgets.QKeySequenceEdit):
@@ -42,7 +42,7 @@ class VerticalLabel(QtWidgets.QLabel):
         painter.setPen(self.color)
         painter.rotate(-90)
         rect = QtCore.QRect(-self.height(), 0, self.height(), self.width())
-        painter.drawText(rect, QtCore.Qt.AlignCenter | QtCore.Qt.AlignVCenter,
+        painter.drawText(rect, QtCore.Qt.AlignmentFlag.AlignCenter | QtCore.Qt.AlignmentFlag.AlignVCenter,
                          self.textlabel)
         painter.end()
 
@@ -75,18 +75,18 @@ class OverlayWidget(QtWidgets.QWidget):
 
     def set_state(self, translucent: bool):
         if translucent:
-            self.setWindowFlags(QtCore.Qt.FramelessWindowHint
-                                | QtCore.Qt.WindowTransparentForInput
-                                | QtCore.Qt.WindowStaysOnTopHint
-                                | QtCore.Qt.CoverWindow
-                                | QtCore.Qt.NoDropShadowWindowHint
-                                | QtCore.Qt.WindowDoesNotAcceptFocus)
-            self.setAttribute(QtCore.Qt.WA_TranslucentBackground, True)
+            self.setWindowFlags(QtCore.Qt.WindowType.FramelessWindowHint
+                                | QtCore.Qt.WindowType.WindowTransparentForInput
+                                | QtCore.Qt.WindowType.WindowStaysOnTopHint
+                                | QtCore.Qt.WindowType.CoverWindow
+                                | QtCore.Qt.WindowType.NoDropShadowWindowHint
+                                | QtCore.Qt.WindowType.WindowDoesNotAcceptFocus)
+            self.setAttribute(QtCore.Qt.WidgetAttribute.WA_TranslucentBackground, True)
         else:
-            self.setWindowFlags(QtCore.Qt.Window
-                                | QtCore.Qt.CustomizeWindowHint
-                                | QtCore.Qt.WindowTitleHint)
-            self.setAttribute(QtCore.Qt.WA_TranslucentBackground, False)
+            self.setWindowFlags(QtCore.Qt.WindowType.Window
+                                | QtCore.Qt.WindowType.CustomizeWindowHint
+                                | QtCore.Qt.WindowType.WindowTitleHint)
+            self.setAttribute(QtCore.Qt.WidgetAttribute.WA_TranslucentBackground, False)
 
     def change_state(self):
         """ Changes the widget to be movable or not"""

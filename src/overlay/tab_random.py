@@ -1,7 +1,7 @@
 import random
 from typing import Dict, Optional
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt6 import QtCore, QtGui, QtWidgets
 
 from overlay.aoe4_data import civ_data, map_data
 from overlay.helper_func import file_path
@@ -31,7 +31,7 @@ class RandomTab(QtWidgets.QWidget):
 
         # Civ layout
         civ_layout = QtWidgets.QVBoxLayout()
-        civ_layout.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignTop)
+        civ_layout.setAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter | QtCore.Qt.AlignmentFlag.AlignTop)
         layout.addLayout(civ_layout)
         civ_layout.addItem(QtWidgets.QSpacerItem(0, 50))
 
@@ -42,7 +42,7 @@ class RandomTab(QtWidgets.QWidget):
 
         # Civ label
         self.civ_label = QtWidgets.QLabel()
-        self.civ_label.setAlignment(QtCore.Qt.AlignHCenter)
+        self.civ_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter)
         self.civ_label.setStyleSheet("font-weight: bold; font-size: 20px")
         civ_layout.addWidget(self.civ_label)
         civ_layout.addItem(QtWidgets.QSpacerItem(0, 100))
@@ -55,7 +55,7 @@ class RandomTab(QtWidgets.QWidget):
 
         # Map layout
         map_layout = QtWidgets.QVBoxLayout()
-        map_layout.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignTop)
+        map_layout.setAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter | QtCore.Qt.AlignmentFlag.AlignTop)
         layout.addLayout(map_layout)
 
         # Map image
@@ -65,7 +65,7 @@ class RandomTab(QtWidgets.QWidget):
 
         # Map label
         self.map_label = QtWidgets.QLabel()
-        self.map_label.setAlignment(QtCore.Qt.AlignHCenter)
+        self.map_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter)
         self.map_label.setStyleSheet("font-weight: bold; font-size: 20px")
         map_layout.addWidget(self.map_label)
         map_layout.addItem(QtWidgets.QSpacerItem(0, 30))
@@ -85,8 +85,8 @@ class RandomTab(QtWidgets.QWidget):
             return self.pixmaps[file_path]
         pixmap = QtGui.QPixmap(file_path)
         pixmap = pixmap.scaled(widget.width(), widget.height(),
-                               QtCore.Qt.KeepAspectRatio,
-                               QtCore.Qt.FastTransformation)
+                               QtCore.Qt.AspectRatioMode.KeepAspectRatio,
+                               QtCore.Qt.TransformationMode.FastTransformation)
         self.pixmaps[file_path] = pixmap
         return pixmap
 
