@@ -4,7 +4,7 @@ from typing import Callable, Optional
 
 from PySide6 import QtCore
 
-from src.overlay.logging_func import get_logger
+from logging_func import get_logger
 
 logger = get_logger(__name__)
 
@@ -60,8 +60,7 @@ class Worker(QtCore.QRunnable):
             except Exception:
                 logger.exception("")
                 exctype, value = sys.exc_info()[:2]
-                self.signals.error.emit(
-                    (exctype, value, traceback.format_exc()))
+                self.signals.error.emit((exctype, value, traceback.format_exc()))
             else:
                 self.signals.result.emit(result)
             finally:

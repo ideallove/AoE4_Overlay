@@ -5,12 +5,12 @@ from typing import Tuple, Type
 import keyboard
 from PySide6 import QtCore, QtGui, QtWidgets
 
-from src.overlay.api_checking import find_player
-from src.overlay.custom_widgets import CustomKeySequenceEdit
-from src.overlay.logging_func import get_logger
-from src.overlay.overlay_widget import AoEOverlay
-from src.overlay.settings import settings
-from src.overlay.worker import scheldule
+from api_checking import find_player
+from custom_widgets import CustomKeySequenceEdit
+from logging_func import get_logger
+from overlay_widget import AoEOverlay
+from settings import settings
+from worker import scheldule
 
 str_profile_en = "Profile"
 str_no_player_identified_en = "No player identified"

@@ -9,9 +9,9 @@ from typing import Any, Dict, Optional, Union
 import requests
 from PySide6 import QtCore
 
-from src.overlay.aoe4_data import QM_ids
-from src.overlay.logging_func import get_logger
-from src.overlay.settings import settings
+from aoe4_data import QM_ids
+from logging_func import get_logger
+from settings import settings
 
 logger = get_logger(__name__)
 ROOT = pathlib.Path(sys.argv[0]).parent.absolute()

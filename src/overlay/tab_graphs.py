@@ -2,11 +2,11 @@ from typing import Any, Dict, List
 
 from PySide6 import QtWidgets, QtGui
 
-from src.overlay.api_checking import get_rating_history
-from src.overlay.graph_widget import GraphWidget
-from src.overlay.logging_func import get_logger
-from src.overlay.settings import settings
-from src.overlay.worker import scheldule
+from api_checking import get_rating_history
+from graph_widget import GraphWidget
+from logging_func import get_logger
+from settings import settings
+from worker import scheldule
 
 logger = get_logger(__name__)
 

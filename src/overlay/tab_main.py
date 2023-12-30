@@ -1,3 +1,11 @@
+import sys
+import os
+
+# 获取当前脚本所在的目录
+script_dir = os.path.dirname(os.path.abspath(__file__))
+# 将脚本目录添加到 sys.path 中
+sys.path.append(script_dir)
+
 import importlib
 import platform
 import time
@@ -8,19 +16,19 @@ from typing import Any, Dict, List, Optional
 import keyboard
 from PySide6 import QtWidgets
 
-import src.overlay.helper_func as hf
-from src.overlay.api_checking import Api_checker, get_full_match_history
-from src.overlay.logging_func import get_logger, log_match
-from src.overlay.settings import settings
-from src.overlay.tab_build_orders import BoTab
-from src.overlay.tab_games import MatchHistoryTab
-from src.overlay.tab_graphs import GraphTab
-from src.overlay.tab_override import OverrideTab
-from src.overlay.tab_random import RandomTab
-from src.overlay.tab_settings import SettingsTab
-from src.overlay.tab_stats import StatsTab
-from src.overlay.websocket import Websocket_manager
-from src.overlay.worker import scheldule
+import helper_func as hf
+from api_checking import Api_checker, get_full_match_history
+from logging_func import get_logger, log_match
+from settings import settings
+from tab_build_orders import BoTab
+from tab_games import MatchHistoryTab
+from tab_graphs import GraphTab
+from tab_override import OverrideTab
+from tab_random import RandomTab
+from tab_settings import SettingsTab
+from tab_stats import StatsTab
+from websocket import Websocket_manager
+from worker import scheldule
 
 str_setting_en = "Setting"
 str_games_en = "Games"

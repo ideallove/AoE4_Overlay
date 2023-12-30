@@ -4,8 +4,8 @@ from typing import Any, Dict, List
 
 from PySide6 import QtCore, QtWidgets
 
-from src.overlay.logging_func import catch_exceptions, get_logger
-from src.overlay.settings import settings
+from logging_func import catch_exceptions, get_logger
+from settings import settings
 
 logger = get_logger(__name__)
 

@@ -2,12 +2,12 @@ from typing import Any, Dict, List
 
 from PySide6 import QtCore, QtWidgets
 
-from src.overlay.aoe4_data import civ_data, map_data, mode_data
-from src.overlay.api_checking import get_leaderboard_data
-from src.overlay.helper_func import match_mode
-from src.overlay.logging_func import catch_exceptions, get_logger
-from src.overlay.settings import settings
-from src.overlay.worker import scheldule
+from aoe4_data import civ_data, map_data, mode_data
+from api_checking import get_leaderboard_data
+from helper_func import match_mode
+from logging_func import catch_exceptions, get_logger
+from settings import settings
+from worker import scheldule
 
 logger = get_logger(__name__)
 

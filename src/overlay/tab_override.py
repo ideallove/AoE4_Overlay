@@ -2,11 +2,11 @@ from typing import Any, Callable, Dict
 
 from PySide6 import QtCore, QtGui, QtWidgets
 
-from src.overlay.aoe4_data import civ_data
-from src.overlay.helper_func import file_path, zeroed
-from src.overlay.logging_func import get_logger
-from src.overlay.overlay_widget import AoEOverlay, PlayerWidget
-from src.overlay.settings import settings
+from aoe4_data import civ_data
+from helper_func import file_path, zeroed
+from logging_func import get_logger
+from overlay_widget import AoEOverlay, PlayerWidget
+from settings import settings
 
 logger = get_logger(__name__)
 ICON_CACHE = {}
