@@ -9,7 +9,7 @@ from zipfile import ZIP_DEFLATED, ZipFile
 
 # Run nuitka
 os.system('cmd /c "python -m nuitka'
-          ' --plugin-enable=pyqt5'
+          ' --plugin-enable=pyside6'
           ' --standalone'
           ' --windows-disable-console'
           ' --windows-icon-from-ico=src/img/aoe4_sword_shield.ico'
@@ -34,6 +34,6 @@ with ZipFile(file_name, 'w', compression=ZIP_DEFLATED) as zip:
         zip.write(f, f"AoE4_Overlay/{f[len(folder)+1:]}")
 
 # Cleanup
-for item in (folder, ):
-    if os.path.isdir(item):
-        shutil.rmtree(item)
+# for item in (folder, ):
+#     if os.path.isdir(item):
+#         shutil.rmtree(item)
