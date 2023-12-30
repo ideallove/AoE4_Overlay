@@ -9,7 +9,7 @@ from zipfile import ZIP_DEFLATED, ZipFile
 
 # Run nuitka
 os.system('cmd /c "python -m nuitka'
-          ' --plugin-enable=pyqt6'
+          ' --plugin-enable=pyside6'
           ' --standalone'
           ' --windows-disable-console'
           ' --windows-icon-from-ico=src/img/aoe4_sword_shield.ico'
