@@ -64,6 +64,8 @@ class Worker(QtCore.QRunnable):
             else:
                 self.signals.result.emit(result)
             finally:
+                if not self.signals:  # 检查 signals 对象是否存在
+                    return
                 self.signals.finished.emit()
         except RuntimeError:
             logger.exception('Error with pyqt thread. The app likely closed.')
