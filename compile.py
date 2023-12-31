@@ -11,7 +11,7 @@ from zipfile import ZIP_DEFLATED, ZipFile
 os.system('cmd /c "python -m nuitka'
           ' --plugin-enable=pyside6'
           ' --standalone'
-          ' --windows-disable-console'
+          ' --enable-console --debug --show-progress --show-modules'
           ' --windows-icon-from-ico=src/img/aoe4_sword_shield.ico'
           ' --include-data-dir=src/img=img'
           ' --include-data-dir=src/html=html'
@@ -34,6 +34,6 @@ with ZipFile(file_name, 'w', compression=ZIP_DEFLATED) as zip:
         zip.write(f, f"AoE4_Overlay/{f[len(folder)+1:]}")
 
 # Cleanup
-for item in (folder, ):
-    if os.path.isdir(item):
-        shutil.rmtree(item)
+# for item in (folder, ):
+#     if os.path.isdir(item):
+#         shutil.rmtree(item)

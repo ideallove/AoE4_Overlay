@@ -78,12 +78,13 @@ class InnerPlayer(PlayerWidget):
                      self.civ_median_wins):
             item.textChanged.connect(function)
 
-    def disconnect_changes(self):
-        self.flag.currentIndexChanged.disconnect()
+    def disconnect_changes(self, function: Callable):
+        self.callable = function
+        self.flag.currentIndexChanged.disconnect(function)
         for item in (self.name, self.rating, self.rank, self.winrate,
                      self.wins, self.losses, self.civ_games, self.civ_winrate,
                      self.civ_median_wins):
-            item.textChanged.disconnect()
+            item.textChanged.disconnect(function)
 
     def update_name_color(self):
         color = settings.team_colors[(self.team - 1) %
@@ -98,7 +99,7 @@ class InnerPlayer(PlayerWidget):
 
     def update_player(self, player_data: Dict[str, Any]):
         # We don't want the automatic update to look like the user made the change
-        self.disconnect_changes()
+        self.disconnect_changes(self.callable)
         super().update_player(player_data)
         self.team_cb.setCurrentIndex(self.team)
         self.connect_to_function(self.callable)
@@ -155,7 +156,7 @@ class InnerOverlay(AoEOverlay):
             self.players[-1].connect_to_function(self.changed)
 
     def update_data(self, player_data: Dict[str, Any]):
-        self.map.textChanged.disconnect()
+        self.map.textChanged.disconnect(self.changed)
         super().update_data(player_data)
         self.map.textChanged.connect(self.changed)
 
