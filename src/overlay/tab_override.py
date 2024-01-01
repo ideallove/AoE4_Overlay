@@ -1,6 +1,6 @@
 from typing import Any, Callable, Dict
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PySide2 import QtCore, QtGui, QtWidgets
 
 from overlay.aoe4_data import civ_data
 from overlay.helper_func import file_path, zeroed
@@ -164,8 +164,8 @@ class InnerOverlay(AoEOverlay):
 
 
 class OverrideTab(QtWidgets.QWidget):
-    data_override = QtCore.pyqtSignal(object)
-    update_override = QtCore.pyqtSignal(bool)
+    data_override = QtCore.Signal(object)
+    update_override = QtCore.Signal(bool)
 
     def __init__(self, parent):
         super().__init__(parent)

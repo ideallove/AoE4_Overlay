@@ -6,7 +6,7 @@ from functools import partial
 from typing import Any, Dict, List, Optional
 
 import keyboard
-from PyQt5 import QtWidgets
+from PySide2 import QtWidgets
 
 import overlay.helper_func as hf
 from overlay.api_checking import Api_checker, get_full_match_history
@@ -201,7 +201,7 @@ class TabWidget(QtWidgets.QTabWidget):
         self.check_waking()
 
         # Check for new updates & reset keyboard threads
-        self.check_for_new_version()
+        # self.check_for_new_version()
         self.reset_keyboard_threads()
 
     def reset_keyboard_threads(self):

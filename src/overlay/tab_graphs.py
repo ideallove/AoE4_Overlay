@@ -1,6 +1,6 @@
 from typing import Any, Dict, List
 
-from PyQt5 import QtWidgets
+from PySide2 import QtWidgets
 
 from overlay.api_checking import get_rating_history
 from overlay.graph_widget import GraphWidget

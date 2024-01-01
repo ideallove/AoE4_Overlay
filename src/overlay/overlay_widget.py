@@ -1,6 +1,6 @@
 from typing import Any, Dict
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PySide2 import QtCore, QtGui, QtWidgets
 
 from overlay.custom_widgets import OverlayWidget, VerticalLabel
 from overlay.helper_func import file_path, zeroed

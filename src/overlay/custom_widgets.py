@@ -1,8 +1,8 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PySide2 import QtCore, QtGui, QtWidgets
 
 
 class CustomKeySequenceEdit(QtWidgets.QKeySequenceEdit):
-    key_changed = QtCore.pyqtSignal(str)
+    key_changed = QtCore.Signal(str)
 
     def __init__(self, parent=None):
         super(CustomKeySequenceEdit, self).__init__(parent)

@@ -3,7 +3,7 @@ from types import TracebackType
 from typing import Tuple, Type
 
 import keyboard
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PySide2 import QtCore, QtGui, QtWidgets
 
 from overlay.api_checking import find_player
 from overlay.custom_widgets import CustomKeySequenceEdit
@@ -36,8 +36,8 @@ logger = get_logger(__name__)
 
 
 class SettingsTab(QtWidgets.QWidget):
-    new_profile = QtCore.pyqtSignal()
-    show_hide_overlay = QtCore.pyqtSignal()
+    new_profile = QtCore.Signal()
+    show_hide_overlay = QtCore.Signal()
 
     def __init__(self, parent):
         super().__init__(parent)

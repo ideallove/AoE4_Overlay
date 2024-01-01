@@ -1,6 +1,6 @@
 from typing import Any, Dict, List
 
-from PyQt5 import QtCore, QtWidgets
+from PySide2 import QtCore, QtWidgets
 
 from overlay.aoe4_data import civ_data, map_data, mode_data
 from overlay.api_checking import get_leaderboard_data

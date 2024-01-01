@@ -1,6 +1,6 @@
 appdirs==1.4.4
 keyboard==0.13.5
-PyQt5==5.15.6
-requests==2.28.1
-urllib3==1.26.11
+requests==2.31.0
+urllib3==1.26.18
 websockets==10.3
+PySide2

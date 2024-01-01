@@ -6,7 +6,7 @@ from functools import partial
 from types import TracebackType
 from typing import Type
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PySide2 import QtCore, QtGui, QtWidgets
 
 from overlay.email_log import send_email_log
 from overlay.helper_func import file_path, is_compiled, pyqt_wait
@@ -22,7 +22,7 @@ logger = get_logger(__name__)
 
 
 VERSION = "1.4.5"
-title_chs = "帝国时代4:游戏工具箱 (Overlay1.4.5汉化版内部测试)"
+title_chs = "帝国时代4:游戏工具箱 (Overlay1.4.5汉化版)"
 
 
 # Might or might not help
@@ -78,8 +78,9 @@ class MainApp(QtWidgets.QMainWindow):
         self.setWindowTitle(title_chs)
         self.setWindowIcon(QtGui.QIcon(file_path('img/aoe4_sword_shield.ico')))
         self.setGeometry(0, 0, settings.app_width, settings.app_height)
-        self.move(QtWidgets.QDesktopWidget().availableGeometry().center() -
-                  QtCore.QPoint(int(self.width() / 2), int(self.height() / 2)))
+        # self.move(QtWidgets.QDesktopWidget().availableGeometry().center() - QtCore.QPoint(int(self.width() / 2), int(self.height() / 2)))
+        self.move(QtGui.QGuiApplication.primaryScreen().availableGeometry().center() - QtCore.QPoint(int(self.width() / 2), int(self.height() / 2)))
+
 
         # Create central widget
         self.setCentralWidget(TabWidget(self, VERSION))
@@ -111,7 +112,7 @@ class MainApp(QtWidgets.QMainWindow):
         icon = self.style().standardIcon(
             getattr(QtWidgets.QStyle, 'SP_DialogCloseButton'))
         exitAction = QtWidgets.QAction(icon, 'Exit', self)
-        exitAction.triggered.connect(QtWidgets.qApp.quit)
+        exitAction.triggered.connect(QtWidgets.QApplication.instance().quit)
         file_menu.addAction(exitAction)
 
         # Report crashes
@@ -173,7 +174,7 @@ class MainApp(QtWidgets.QMainWindow):
         aoe4worldaction.triggered.connect(
             partial(webbrowser.open, "https://aoe4world.com/"))
         link_menu.addAction(aoe4worldaction)
-        
+
         # AoE4 CN
         icon = QtGui.QIcon(file_path("img/aoe4worldcom.ico"))
         aoe4cnaction = QtWidgets.QAction(icon, 'AoE4 CN', self)
